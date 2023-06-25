@@ -18,7 +18,6 @@ const ExpenseResolvers = {
             } finally {
                 await db.disconnectMongo();
             }
-
         },
         expensebyname: async (parent, args, context, info) => {
             try {

@@ -11,6 +11,7 @@ dotenv.config();
 
 import schema from './schema.js';
 import resolvers from './resolvers.js';
+
 const executableSchema = makeExecutableSchema({
   typeDefs: schema,
   resolvers: resolvers
