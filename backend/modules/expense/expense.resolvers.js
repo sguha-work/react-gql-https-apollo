@@ -54,6 +54,7 @@ const ExpenseResolvers = {
             try {
                 await db.connectMongo();
                 result = await exp.save();
+                result = await Expense.find().sort({createdAt: 'desc'}).limit(5);
                 pubsub.publish('EXPENSE_INSERTED', {
                     expenseInserted: result
                 });

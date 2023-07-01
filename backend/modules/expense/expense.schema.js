@@ -29,10 +29,10 @@ const ExpenseSchema = `
         expensebyname(createdBy: String):[Expense!]!
     }
     type Mutation {
-        insertExpense(expenseinput: ExpenseInput): Expense
+        insertExpense(expenseinput: ExpenseInput): [Expense]
     }
     type Subscription {
-        expenseInserted: Expense!,
+        expenseInserted: [Expense!]!,
         expenseInsertedForIndividual(createdBy: String): Expense!
     }
 `;

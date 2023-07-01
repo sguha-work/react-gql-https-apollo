@@ -38,12 +38,14 @@ const Table = () => {
                 </thead>
                 <tbody>
                     {
-                        data && data.expenseInserted && (
-                            <tr>
-                                <td>{data.expenseInserted.createdBy}</td>
-                                <td>{data.expenseInserted.amount}</td>
-                                <td>{data.expenseInserted.expenseType}</td>
-                            </tr>
+                        data && data.expenseInserted && Array.isArray(data.expenseInserted) && data.expenseInserted.map((d,i)=>
+                            (
+                                <tr key={i}>
+                                    <td>{d.createdBy}</td>
+                                    <td>{d.amount}</td>
+                                    <td>{d.expenseType}</td>
+                                </tr>
+                            )
                         )
                     }
                 </tbody>
