@@ -11,7 +11,7 @@ dotenv.config();
 
 import schema from './schema.js';
 import resolvers from './resolvers.js';
-
+import cors from 'cors';
 const executableSchema = makeExecutableSchema({
   typeDefs: schema,
   resolvers: resolvers
@@ -19,6 +19,7 @@ const executableSchema = makeExecutableSchema({
 const port = process.env.PORT || 3005;
 const startServer = async () => {
   const app = express();
+  app.use(cors());
   const httpsServer = https.createServer({
     key: fs.readFileSync('key.pem'),
     cert: fs.readFileSync('cert.pem')
